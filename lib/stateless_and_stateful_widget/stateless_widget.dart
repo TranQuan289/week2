@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart'; // thư viện này sẽ cung cấp widget để code
 
+//class Widget : mọi data trong class Widget đều là bất biến
 // State là thông tin thể hiện trên Widget mà có thể thay đổi trong suốt thời gian nó tồn tại
 // StatelessWidget chủ yếu để tạo các giao diện tĩnh
 class MyStateLess extends StatelessWidget {

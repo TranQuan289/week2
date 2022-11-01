@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-//class Widget
+//class Widget : mọi data trong class Widget đều là bất biến
 class MyStateFull extends StatefulWidget {
   // StatefulWidget là 1 Widget có State(dữ liệu bên trong có thể thay đổi được)
   // có thể chủ động Update UI

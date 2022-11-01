@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:week2/stateless_and_stateful_widget/stateful_widget.dart';
+import 'basic_widgets.dart';
+import 'inherited_widgets.dart';
 import 'stateful_widget_lifecycle.dart';
 import 'stateless_and_stateful_widget/stateless_widget.dart';
 
@@ -28,6 +30,14 @@ class MyApp extends StatelessWidget {
                 ButtonRoute(
                   widget: MyWidgetLifecycle(),
                   text: "Đến MyWidgetLifecycle",
+                ),
+                ButtonRoute(
+                  text: "Đến InheritedWidget",
+                  widget: MyAppInheritedWidget(),
+                ),
+                ButtonRoute(
+                  text: "Đến BasicWidget",
+                  widget: BasicWidget(),
                 )
               ]),
         ),
