@@ -52,9 +52,9 @@ class MyApp extends StatelessWidget {
 }
 
 class ButtonRoute extends StatelessWidget {
-  const ButtonRoute({super.key, this.text, this.widget});
-  final String? text;
-  final Widget? widget;
+  const ButtonRoute({super.key, required this.text, required this.widget});
+  final String text;
+  final Widget widget;
 
   @override
   Widget build(BuildContext context) {
@@ -62,10 +62,10 @@ class ButtonRoute extends StatelessWidget {
       onPressed: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => widget!),
+          MaterialPageRoute(builder: (context) => widget),
         );
       },
-      child: Text(text!),
+      child: Text(text),
     );
   }
 }
