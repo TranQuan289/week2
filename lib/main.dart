@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:week2/stateless_and_stateful_widget/stateful_widget.dart';
 import 'basic_widgets.dart';
+import 'cupertino_widgets/cupertino_widgets.dart';
 import 'inherited_widgets.dart';
 import 'stateful_widget_lifecycle.dart';
 import 'stateless_and_stateful_widget/stateless_widget.dart';
@@ -38,6 +39,10 @@ class MyApp extends StatelessWidget {
                 ButtonRoute(
                   text: "Đến BasicWidget",
                   widget: BasicWidget(),
+                ),
+                ButtonRoute(
+                  text: "Đến CupertinoWidget",
+                  widget: CupertinoWidget(),
                 )
               ]),
         ),
