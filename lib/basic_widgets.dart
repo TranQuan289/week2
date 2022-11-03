@@ -28,6 +28,7 @@ import 'package:flutter/services.dart';
 ///primary(mặc định là true) : nếu true thì chiều cao của appBar sẽ mở rộng bằng thanh trạng thái
 ///resizeToAvoidBottomInset: xác định Keyboard có làm ảnh hưởng đến giao diện hay không
 ///restorationId: nhập id để lưu hoặc khôi phục state của Scaffold
+
 ///2.AppBar:
 ///actions: là 1 list các widget hiển thị trên màn hình theo row sau title widget
 ///actionsIconTheme: set Thêm cho icon của action
@@ -57,6 +58,7 @@ import 'package:flutter/services.dart';
 ///toolbarHeight dùng để xác định chiều cao của appBar
 ///toolbarOpacity tạo Opacity cho các thành phần trên appBar(mặc định là 1)
 ///toolbarTextStyle chỉnh style cho leading and action
+
 ///3.Container :
 ///alignment : căn chỉnh  child trong container
 ///child : container chứ 1 child Widget
@@ -69,6 +71,7 @@ import 'package:flutter/services.dart';
 ///padding tạo khoảng cách bên trong decoration and child.
 ///transform tạo độ nghiêng cho container
 ///transformAlignment : căn chỉnh cho transformAlignment
+
 ///4.Column :
 ///children: list các widget xếp theo hàng dọc
 ///mainAxisAlignment: căn chỉnh theo chiều ngang
@@ -77,6 +80,7 @@ import 'package:flutter/services.dart';
 ///textBaseline : tạo đường cơ sở(ngang hay dọc )
 ///textDirection: tạo hướng đi cho text (ltr, rtl)
 ///verticalDirection: thiết lập thứ trự của các children(up, down)
+
 ///5.ElevatedButton :
 ///onPressed : nhấn sẽ nhận return
 ///child : có thể thêm 1 widget bất kì như text, img,..
@@ -93,7 +97,7 @@ import 'package:flutter/services.dart';
 ///curve: tạo hiệu ứng cho logo
 ///duration : tạo thời gian chờ cho logo
 ///textColor : tạo màu chữ cho logo
-///
+
 ///7.Icon :
 /// Icons để tạo 1 icon
 /// color : tạo màu cho icon
@@ -114,13 +118,16 @@ import 'package:flutter/services.dart';
 ///repeat : lặp hình
 ///semanticLabel : tạo label cho image
 ///opacity : tạo độ mờ cho image
+
 ///9.Placeholder: Giữ chỗ
 /// child : tạo 1 child widget
 /// color : tạo màu cho Placeholder
 /// fallbackHeight,fallbackWidth: sử dụng để giữ chỗ trong những tình huống chiều cao,  chiều rộng k giới hạn
 /// strokeWidth : nét đậm nhạt của trình các đường viền
+
 ///10.Row :là 1 hàng chứa các children (gồm 1 list các widget) xếp với nhau theo hàng ngang, có thể đặt các children theo ý thích bằng crossAxisAlignment và mainAxisAlignment
 ///tương tự như Column nhưng khác ở chỗ crossAxisAlignment là theo chiều dọc còn mainAxisAlignment theo chiều ngang
+
 ///11.Text : là widget hiển thị chữ
 ///data : nơi nhập text để hiển thị
 ///locale: để chọn 1 font khi cùng Unicode character
