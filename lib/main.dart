@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'material_components_widgets/button/button_components_widget.dart';
 import 'route_page.dart';
 import 'package:week2/basic_widgets.dart';
 import 'package:week2/inherited_widgets.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         '/inherited': (context) => const MyAppInheritedWidget(),
         '/basic': (context) => const BasicWidget(),
         '/cupertino': (context) => const CupertinoWidget(),
+        '/material': (context) => const ButtonComponentsWidget(),
       },
     );
   }

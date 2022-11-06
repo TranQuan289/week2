@@ -127,9 +127,40 @@
 ///suffixIcon : đặt biểu tượng cho widget cuối thanh search
 ///suffixInsets: set padding cho suffixIcon
 ///suffixMode:chỉ ra khi nhìn thấy X-Mark
-///TODO
+
+///15.CupertinoSlider
+///activeColor: màu cho phần được kéo qua
+///divisions: giá trị mặc định mới vào của slider
+///min: giá trị nhỏ nhất của slider
+///max :giá trị lớn nhất của slider
+///onChanged: bắt sự kiện khi thay đổi giá trị
+///onChangeEnd: bắt sự kiện khi slider kéo tới điểm kết thúc
+///onChangeStart: bắt sự kiện khi slider kéo tới điểm bắt đầu
+///thumbColor: set màu cho nút kéo
+///value: giá trị hiện dc chọn trên slider
+
+///16.CupertinoSwitch
+///activeColor: màu nền khi switch mở
+///dragStartBehavior: xác định cách xử lí khi kéo
+///onChanged: callback khi thuộc tính thay đổi
+///thumbColor : set màu cho nút switch
+///trackColor: màu nền khi switch tắt
+///value: giá trị ban đầu của switch(true false)
+
+///17.CupertinoTextField
+///autocorrect,autofillHints,autofocus,clearButtonMode,clipBehavior,controller,cursorColor,cursorHeight,cursorRadius,cursorWidth,decoration,dragStartBehavior,enabled,enableIMEPersonalizedLearning,enableInteractiveSelection,enableSuggestions,expands,focusNode,inputFormatters,keyboardAppearance,keyboardType,maxLength,maxLengthEnforcement,maxLines,minLines,obscureText,obscuringCharacter,onChanged,onEditingComplete,onSubmitted,onTap,padding,placeholder,placeholderStyle,prefix,prefixMode,readOnly,restorationId,runtimeType,scribbleEnabled,scrollController,scrollPadding,scrollPhysics,selectionControls,selectionEnabled,selectionHeightStyle,selectionWidthStyle,showCursor,smartDashesType,smartQuotesType,strutStyle,style,suffix,suffixMode,textAlign,textAlignVertical,textCapitalization,textDirection,textInputAction,toolbarOptions
+
+///18.CupertinoTimerPicker
+///backgroundColor: màu nền cho CupertinoTimerPicker
+///alignment: xác định vị trí của CupertinoTimerPicker
+///mode : set sẽ hiển thị theo kiểu gì
+///initialTimerDuration: set thời gian ban đầu cho CupertinoTimerPicker
+///minuteInterval: mức độ chi tiết của con quay phút
+///secondInterval: mức độ chi tiết của con quay giây
+///onTimerDurationChanged: callback khi CupertinoTimerPicker có thay đổi
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 
 class CupertinoWidget extends StatefulWidget {
   const CupertinoWidget({super.key});
@@ -138,6 +169,9 @@ class CupertinoWidget extends StatefulWidget {
   State<CupertinoWidget> createState() => _CupertinoWidgetState();
 }
 
+Duration duration = const Duration(hours: 1, minutes: 23);
+bool switchValue = true;
+double _currentSliderValue = 0.0;
 int _selectedFruit = 0;
 const double _kItemExtent = 32.0;
 const List<String> _fruitNames = <String>[
@@ -200,8 +234,6 @@ class _CupertinoWidgetState extends State<CupertinoWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CupertinoSearchTextField(
-                //TODO
-                // prefixIcon: ,
                 suffixMode: OverlayVisibilityMode.always,
                 suffixInsets: const EdgeInsets.symmetric(horizontal: 12),
                 suffixIcon: const Icon(CupertinoIcons.heart_circle),
@@ -246,20 +278,45 @@ class _CupertinoWidgetState extends State<CupertinoWidget> {
                   ],
                 ),
               ),
-              CupertinoButton(
-                pressedOpacity: 0.8,
-                padding: const EdgeInsets.symmetric(horizontal: 50),
-                minSize: 102,
-                disabledColor: const Color(0xFF90A17D),
-                borderRadius: const BorderRadius.all(Radius.circular(10)),
-                color: const Color(0xFF624F82),
-                alignment: Alignment.center,
-                child: const Text("CupertinoButton"),
-                onPressed: () {
-                  _showActionSheet(context);
-                },
+              Row(
+                children: [
+                  CupertinoButton(
+                    onPressed: () => _showDialog(
+                      CupertinoTimerPicker(
+                        backgroundColor: CupertinoColors.white,
+                        mode: CupertinoTimerPickerMode.ms,
+                        minuteInterval: 10,
+                        secondInterval: 1,
+                        alignment: Alignment.bottomCenter,
+                        initialTimerDuration: duration,
+                        onTimerDurationChanged: (Duration newDuration) {
+                          setState(() => duration = newDuration);
+                        },
+                      ),
+                    ),
+                    child: Text(
+                      '$duration',
+                      style: const TextStyle(
+                        color: CupertinoColors.white,
+                        fontSize: 22.0,
+                      ),
+                    ),
+                  ),
+                  CupertinoButton(
+                    pressedOpacity: 0.8,
+                    padding: const EdgeInsets.symmetric(horizontal: 50),
+                    minSize: 102,
+                    disabledColor: const Color(0xFF90A17D),
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
+                    color: const Color(0xFF624F82),
+                    alignment: Alignment.center,
+                    child: const Text("CupertinoButton"),
+                    onPressed: () {
+                      _showActionSheet(context);
+                    },
+                  ),
+                ],
               ),
-              const SizedBox(height: 20),
               CupertinoButton(
                 pressedOpacity: 0.8,
                 padding: const EdgeInsets.symmetric(horizontal: 50),
@@ -369,6 +426,31 @@ class _CupertinoWidgetState extends State<CupertinoWidget> {
               ),
               const CupertinoPopupSurface(
                   isSurfacePainted: false, child: Icon(CupertinoIcons.heart)),
+              CupertinoSwitch(
+                  trackColor: CupertinoColors.inactiveGray,
+                  thumbColor: CupertinoColors.inactiveGray,
+                  dragStartBehavior: DragStartBehavior.start,
+                  activeColor: CupertinoColors.activeBlue,
+                  value: switchValue,
+                  onChanged: (value) {
+                    setState(() {
+                      switchValue = value;
+                    });
+                  }),
+              const CupertinoTextField(),
+              CupertinoSlider(
+                thumbColor: CupertinoColors.activeBlue,
+                min: 0,
+                max: 100,
+                divisions: 40,
+                activeColor: CupertinoColors.activeBlue,
+                value: _currentSliderValue,
+                onChanged: (value) {
+                  setState(() {
+                    _currentSliderValue = value;
+                  });
+                },
+              ),
               CupertinoButton(
                   onPressed: () {
                     Navigator.pop(context);

@@ -42,6 +42,11 @@ class RoutePage extends StatelessWidget {
                 Navigator.pushNamed(context, '/cupertino');
               },
               child: const Text("Đến CupertinoWidget")),
+          TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/material');
+              },
+              child: const Text("Đến Material"))
         ]),
       ),
     );
